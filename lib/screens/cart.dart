@@ -19,13 +19,13 @@ class MyCart extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(32),
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
                 child: _CartList(),
               ),
             ),
             Divider(
               height: 4,
-              color: Colors.black,
+              color: Colors.blue,
             ),
             _CartTotal(),
           ],

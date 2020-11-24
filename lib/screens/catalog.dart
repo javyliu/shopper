@@ -15,7 +15,9 @@ class MyCatalog extends StatelessWidget {
               height: 12,
             ),
           ),
-          SliverList(delegate: SliverChildBuilderDelegate((context, index) => _MyListItem(index)))
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) => _MyListItem(index)),
+          )
         ],
       ),
     );
@@ -89,11 +91,7 @@ class _MyListItem extends StatelessWidget {
             SizedBox(
               width: 24,
             ),
-            Expanded(
-                child: Text(
-              item.name,
-              style: textTheme,
-            )),
+            Expanded(child: Text(item.name, style: textTheme)),
             SizedBox(
               width: 24,
             ),
