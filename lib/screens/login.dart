@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class MyLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- login build");
+
     return Scaffold(
       body: Center(
         child: Container(

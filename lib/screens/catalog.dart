@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopper/models/cart.dart';
@@ -6,6 +8,8 @@ import 'package:shopper/models/catalog.dart';
 class MyCatalog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- catalog build");
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -16,7 +20,9 @@ class MyCatalog extends StatelessWidget {
             ),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) => _MyListItem(index)),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => _MyListItem(index),
+            ),
           )
         ],
       ),
@@ -30,6 +36,8 @@ class _AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log("-- add button build");
+
     var isInCart = context.select<CartModel, bool>(
       (cart) => cart.items.contains(item),
     );
@@ -54,6 +62,8 @@ class _AddButton extends StatelessWidget {
 class _MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- app bar build");
+
     return SliverAppBar(
       title: Text('Catalog', style: Theme.of(context).textTheme.headline1),
       floating: true,
@@ -72,6 +82,8 @@ class _MyListItem extends StatelessWidget {
   _MyListItem(this.index, {Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    log("--- listitem build");
+
     var item = context.select<CatalogModel, Item>((catalog) => catalog.getByPosition(index));
 
     var textTheme = Theme.of(context).textTheme.headline6;

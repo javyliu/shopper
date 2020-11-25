@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:shopper/models/cart.dart';
 import 'package:provider/provider.dart';
@@ -5,6 +7,8 @@ import 'package:provider/provider.dart';
 class MyCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- my cart build");
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -38,6 +42,8 @@ class MyCart extends StatelessWidget {
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- cartlist build");
+
     var itemNameStyle = Theme.of(context).textTheme.headline6;
     var cart = context.watch<CartModel>();
 
@@ -63,6 +69,8 @@ class _CartList extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("-- cart total build");
+
     var hugeStyle = Theme.of(context).textTheme.headline1.copyWith(fontSize: 48);
 
     return SizedBox(
